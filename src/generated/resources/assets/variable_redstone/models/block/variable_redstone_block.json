@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "variable_redstone:block/variable_redstone_block"
+  }
+}

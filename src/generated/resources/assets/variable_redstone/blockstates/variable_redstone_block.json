@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "variable_redstone:block/variable_redstone_block"
+    }
+  }
+}
