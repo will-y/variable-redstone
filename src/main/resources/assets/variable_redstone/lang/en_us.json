@@ -1,4 +1,7 @@
 {
   "itemGroup.variable_redstone": "Variable Redstone",
-  "block.variable_redstone.variable_redstone_block": "Variable Redstone Block"
+  "screen.variable.title": "Change Power Level",
+  "block.variable_redstone.variable_redstone_block": "Variable Redstone Block",
+  "block.variable_redstone.variable_redstone_torch": "Variable Redstone Torch",
+  "block.variable_redstone.variable_redstone_wall_torch": "Variable Redstone Torch"
 }

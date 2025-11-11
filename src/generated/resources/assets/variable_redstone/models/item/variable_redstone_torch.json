@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "variable_redstone:block/variable_redstone_torch"
+  }
+}
