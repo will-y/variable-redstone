@@ -9,9 +9,9 @@ The currently implemented components are:
 - Variable Redstone Torch
 
 ## Screenshots
-![All Variable Redstone Components](https://github.com/will-y/variable-redstone/raw/main/img/crafting/all.png)
+![All Variable Redstone Components](https://github.com/will-y/variable-redstone/raw/main/img/all.png)
 
-![UI](https://github.com/will-y/variable-redstone/raw/main/img/crafting/ui.png)
+![UI](https://github.com/will-y/variable-redstone/raw/main/img/ui.png)
 
 ## Crafting
 ### Variable Redstone Block
