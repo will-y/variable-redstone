@@ -1,5 +1,7 @@
-// 1.21.1	2025-11-10T19:49:20.9962401	Recipes
+// 1.21.1	2025-11-12T19:42:20.4971972	Recipes
+e3580743bc88c60e128614afd60e156c799db823 data/variable_redstone/advancement/recipes/redstone/variable_lever.json
 8b253ddd5cffe81593f001ff4433f820ad3c7441 data/variable_redstone/advancement/recipes/redstone/variable_redstone_block.json
 c77efcfbf1dd54e54112625e2c144f61a25590b5 data/variable_redstone/advancement/recipes/redstone/variable_redstone_torch.json
+3c20263d5581b494382e80b95633ebc32efa1ccb data/variable_redstone/recipe/variable_lever.json
 2eb47deab41ba11e4b8246ed32e0f61c981342fc data/variable_redstone/recipe/variable_redstone_block.json
 8a1a1fa12ba488c6cea6cb00a5b33849dbab277b data/variable_redstone/recipe/variable_redstone_torch.json

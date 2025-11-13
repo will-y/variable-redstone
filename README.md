@@ -7,6 +7,7 @@ They act exactly like their vanilla counterparts, except they can be right-click
 The currently implemented components are:
 - Variable Redstone Block
 - Variable Redstone Torch
+- Variable Lever
 
 ## Screenshots
 ![All Variable Redstone Components](https://github.com/will-y/variable-redstone/raw/main/img/all.png)
@@ -19,3 +20,6 @@ The currently implemented components are:
 
 ### Variable Redstone Torch
 ![Variable Redstone Torch Crafting](https://github.com/will-y/variable-redstone/raw/main/img/crafting/torch.png)
+
+### Variable Lever
+![Variable Lever Crafting](https://github.com/will-y/variable-redstone/raw/main/img/crafting/lever.png)

@@ -1,7 +1,10 @@
-// 1.21.1	2025-11-10T18:47:18.316305	Block States: variable_redstone
+// 1.21.1	2025-11-12T19:42:20.4986641	Block States: variable_redstone
+4a8706f1f6c81949750efe2bb6158b8b10eb10c0 assets/variable_redstone/blockstates/variable_lever.json
 8d1d61183d6eb309eb07bcaa5bcb01aa1e06be9d assets/variable_redstone/blockstates/variable_redstone_block.json
 f4422ae84bb9af523844be9cc5a87160ae7eab2d assets/variable_redstone/blockstates/variable_redstone_torch.json
 07dc024706cfaa6ae32fd3fe9e24ed2091a07b26 assets/variable_redstone/blockstates/variable_redstone_wall_torch.json
+ba260d99904b2b9e5c606b0e8154072378e33976 assets/variable_redstone/models/block/variable_lever.json
+c8aeab8df5f717203a9e0f80bd4630820c03c224 assets/variable_redstone/models/block/variable_lever_on.json
 8804fb704d51e8d9a2d0e1813e70f3a0b1cb6fc3 assets/variable_redstone/models/block/variable_redstone_block.json
 da8c24b4ea1ac7e21e07f474509efe5e79f941fc assets/variable_redstone/models/block/variable_redstone_torch.json
 28f33db1d6654c4c6acc0c199d2b20a257c5f17f assets/variable_redstone/models/block/variable_redstone_torch_off.json

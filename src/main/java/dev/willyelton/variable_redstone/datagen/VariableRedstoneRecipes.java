@@ -35,5 +35,13 @@ public class VariableRedstoneRecipes extends RecipeProvider {
                 .define('t', Items.REDSTONE_TORCH)
                 .unlockedBy("has_amethyst", has(Items.AMETHYST_SHARD))
                 .save(recipeOutput);
+
+        shaped(RecipeCategory.REDSTONE, VariableRedstone.VARIABLE_LEVER.get(), 1)
+                .pattern("a")
+                .pattern("l")
+                .define('a', Items.AMETHYST_SHARD)
+                .define('l', Items.LEVER)
+                .unlockedBy("has_amethyst", has(Items.AMETHYST_SHARD))
+                .save(recipeOutput);
     }
 }

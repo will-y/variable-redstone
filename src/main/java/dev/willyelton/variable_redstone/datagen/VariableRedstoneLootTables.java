@@ -18,6 +18,7 @@ public class VariableRedstoneLootTables extends VanillaBlockLoot {
     protected void generate() {
         dropSelf(VariableRedstone.VARIABLE_REDSTONE_BLOCK.get());
         dropSelf(VariableRedstone.VARIABLE_REDSTONE_TORCH.get());
+        dropSelf(VariableRedstone.VARIABLE_LEVER.get());
     }
 
     @Override

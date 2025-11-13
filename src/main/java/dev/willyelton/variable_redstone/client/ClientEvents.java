@@ -17,10 +17,12 @@ public class ClientEvents {
                     // Replace with your own calculation. See the BlockColors class for vanilla references.
                     // Colors are in ARGB format. Generally, if the tint index is -1, it means that no tinting
                     // should take place and a default value should be used instead.
+//            return -1;
                     return 0xFFFFFFFF - ((15 - state.getValue(VariableRedstone.POWER)) * COLOR_DELTA);
                 },
                 // A varargs of blocks to apply the tinting to
                 VariableRedstone.VARIABLE_REDSTONE_TORCH.get(), VariableRedstone.VARIABLE_REDSTONE_WALL_TORCH.get(),
-                VariableRedstone.VARIABLE_REDSTONE_BLOCK.get());
+                VariableRedstone.VARIABLE_REDSTONE_BLOCK.get(),
+                VariableRedstone.VARIABLE_LEVER.get());
     }
 }

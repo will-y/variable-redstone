@@ -6,11 +6,19 @@ import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RedstoneTorchBlock;
+import net.minecraft.world.level.block.state.properties.AttachFace;
 import net.neoforged.neoforge.client.model.generators.BlockModelBuilder;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
+import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredHolder;
+
+import static net.minecraft.world.level.block.FaceAttachedHorizontalDirectionalBlock.FACE;
+import static net.minecraft.world.level.block.HorizontalDirectionalBlock.FACING;
+import static net.minecraft.world.level.block.LeverBlock.POWERED;
+import static net.minecraft.world.level.block.state.properties.AttachFace.FLOOR;
+import static net.minecraft.world.level.block.state.properties.AttachFace.WALL;
 
 public class VariableRedstoneBlockStates extends BlockStateProvider {
     public VariableRedstoneBlockStates(PackOutput output, ExistingFileHelper exFileHelper) {
@@ -22,6 +30,7 @@ public class VariableRedstoneBlockStates extends BlockStateProvider {
         registerRedstoneBlock(VariableRedstone.VARIABLE_REDSTONE_BLOCK, "variable_redstone_block");
         registerTorch();
         registerWallTorch();
+        registerLever();
     }
 
     private void registerRedstoneBlock(DeferredHolder<Block, ?> holder, String name) {
@@ -172,5 +181,94 @@ public class VariableRedstoneBlockStates extends BlockStateProvider {
 
         horizontalBlock(VariableRedstone.VARIABLE_REDSTONE_WALL_TORCH.get(),
                 state -> state.getValue(RedstoneTorchBlock.LIT) ? wallTorchModel : offModel, 90);
+    }
+
+    private void registerLever() {
+        BlockModelBuilder leverOff = getLeverModel("", -45);
+        BlockModelBuilder leverOn = getLeverModel("_on", 45);
+
+        getVariantBuilder(VariableRedstone.VARIABLE_LEVER.get())
+                .forAllStates(state -> {
+                    ModelFile modelFile = state.getValue(POWERED) ? leverOn : leverOff;
+                    int[] rot = rotFromDir(state.getValue(FACE), state.getValue(FACING));
+                    return ConfiguredModel.builder()
+                            .modelFile(modelFile)
+                            .rotationX(rot[0])
+                            .rotationY(rot[1])
+                            .build();
+                });
+    }
+
+    private int[] rotFromDir(AttachFace attachFace, Direction facing) {
+        int x = switch (attachFace) {
+            case WALL -> 90;
+            case FLOOR -> 0;
+            case CEILING -> 180;
+        };
+        
+        int y = switch(facing) {
+            case DOWN, UP -> 0;
+            case NORTH -> attachFace == WALL || attachFace == FLOOR ? 0 : 180;
+            case SOUTH -> attachFace == WALL || attachFace == FLOOR ? 180 : 0;
+            case WEST -> attachFace == WALL || attachFace == FLOOR ? 270 : 90;
+            case EAST -> attachFace == WALL || attachFace == FLOOR ? 90 : 270;
+        };
+
+        return new int[]{x, y};
+    }
+
+    private BlockModelBuilder getLeverModel(String suffix, float angle) {
+        return models().getBuilder(VariableRedstone.VARIABLE_LEVER.getId().getPath() + suffix)
+                .texture("particle", mcLoc("block/cobblestone"))
+                .texture("base", mcLoc("block/cobblestone"))
+                .texture("lever", modLoc("block/variable_lever"))
+                .ao(false)
+                .element()
+                .from(5, -0.02F, 4)
+                .to(11, 2.98F, 12)
+                .allFaces((dir, faceBuilder) -> {
+                    faceBuilder.texture("#base");
+                    switch (dir) {
+                        case DOWN:
+                            faceBuilder.cullface(Direction.DOWN);
+                        case UP:
+                            faceBuilder.uvs(5, 4, 11, 12);
+                            break;
+                        case NORTH:
+                        case SOUTH:
+                            faceBuilder.uvs(5, 0, 11, 3);
+                            break;
+                        case EAST:
+                        case WEST:
+                            faceBuilder.uvs(4, 0, 12, 3);
+                            break;
+                    }
+                })
+                .end()
+                .element()
+                    .from(7, 1, 7)
+                    .to(9, 11, 9)
+                    .rotation()
+                        .origin(8, 1, 8)
+                        .axis(Direction.Axis.X)
+                        .angle(angle)
+                    .end()
+                    .allFaces((dir, faceBuilder) -> {
+                        faceBuilder.texture("#lever")
+                                .tintindex(0);
+                        switch (dir) {
+                            case UP:
+                                faceBuilder.uvs(7, 6, 9, 8);
+                                break;
+                            case DOWN:
+                            case NORTH:
+                            case SOUTH:
+                            case EAST:
+                            case WEST:
+                                faceBuilder.uvs(7, 6, 9, 16);
+                                break;
+                        }
+                    })
+                .end();
     }
 }

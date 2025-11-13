@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "key": {
+    "a": {
+      "item": "minecraft:amethyst_shard"
+    },
+    "l": {
+      "item": "minecraft:lever"
+    }
+  },
+  "pattern": [
+    "a",
+    "l"
+  ],
+  "result": {
+    "count": 1,
+    "id": "variable_redstone:variable_lever"
+  }
+}
