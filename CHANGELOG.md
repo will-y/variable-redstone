@@ -1,4 +1,8 @@
 # Variable Redstone Changelog
+## Version 1.2.0
+- Adds the Variable Button
+- Fixes the lever block properties
+
 ## Version 1.1.0
 - Adds the Variable Lever
 
@@ -10,4 +14,3 @@
 ### Additions
 - Adds the Variable Redstone Block
 - Adds the Variable Redstone Torch
-- 

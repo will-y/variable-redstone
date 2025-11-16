@@ -31,6 +31,7 @@ public class VariableRedstoneBlockStates extends BlockStateProvider {
         registerTorch();
         registerWallTorch();
         registerLever();
+        registerButton();
     }
 
     private void registerRedstoneBlock(DeferredHolder<Block, ?> holder, String name) {
@@ -199,6 +200,22 @@ public class VariableRedstoneBlockStates extends BlockStateProvider {
                 });
     }
 
+    private void registerButton() {
+        BlockModelBuilder button = getButtonModel("", 14);
+        BlockModelBuilder buttonPressed = getButtonModel("_pressed", 13);
+
+        getVariantBuilder(VariableRedstone.VARIABLE_BUTTON.get())
+                .forAllStates(state -> {
+                    ModelFile modelFile = state.getValue(POWERED) ? buttonPressed : button;
+                    int[] rot = rotFromDir(state.getValue(FACE), state.getValue(FACING));
+                    return ConfiguredModel.builder()
+                            .modelFile(modelFile)
+                            .rotationX(rot[0])
+                            .rotationY(rot[1])
+                            .build();
+                });
+    }
+
     private int[] rotFromDir(AttachFace attachFace, Direction facing) {
         int x = switch (attachFace) {
             case WALL -> 90;
@@ -269,6 +286,35 @@ public class VariableRedstoneBlockStates extends BlockStateProvider {
                                 break;
                         }
                     })
+                .end();
+    }
+
+    private BlockModelBuilder getButtonModel(String suffix, int height) {
+        return models().getBuilder(VariableRedstone.VARIABLE_BUTTON.getId().getPath() + suffix)
+                .texture("texture", modLoc("block/variable_redstone_block"))
+                .texture("particle", "#texture")
+                .element()
+                .from(5, 0, 6)
+                .to(11, 2, 10)
+                .allFaces((dir, faceBuilder) -> {
+                    faceBuilder.texture("#texture");
+                    faceBuilder.tintindex(0);
+                    switch (dir) {
+                        case DOWN:
+                            faceBuilder.cullface(Direction.DOWN);
+                        case UP:
+                            faceBuilder.uvs(4, 2, 10, 6);
+                            break;
+                        case NORTH:
+                        case SOUTH:
+                            faceBuilder.uvs(5, 12, 11, height);
+                            break;
+                        case EAST:
+                        case WEST:
+                            faceBuilder.uvs(6, 12, 10, height);
+                            break;
+                    }
+                })
                 .end();
     }
 }

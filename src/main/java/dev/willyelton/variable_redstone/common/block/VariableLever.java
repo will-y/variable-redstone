@@ -9,6 +9,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LeverBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
@@ -18,9 +19,9 @@ import net.minecraft.world.phys.BlockHitResult;
 
 import static dev.willyelton.variable_redstone.VariableRedstone.POWER;
 
-public class VariableRedstoneLever extends LeverBlock {
-    public VariableRedstoneLever() {
-        super(BlockBehaviour.Properties.of());
+public class VariableLever extends LeverBlock {
+    public VariableLever() {
+        super(BlockBehaviour.Properties.ofFullCopy(Blocks.LEVER));
         this.registerDefaultState(
                 this.stateDefinition.any()
                         .setValue(FACING, Direction.NORTH)

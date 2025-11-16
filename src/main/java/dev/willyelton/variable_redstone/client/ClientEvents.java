@@ -23,6 +23,7 @@ public class ClientEvents {
                 // A varargs of blocks to apply the tinting to
                 VariableRedstone.VARIABLE_REDSTONE_TORCH.get(), VariableRedstone.VARIABLE_REDSTONE_WALL_TORCH.get(),
                 VariableRedstone.VARIABLE_REDSTONE_BLOCK.get(),
-                VariableRedstone.VARIABLE_LEVER.get());
+                VariableRedstone.VARIABLE_LEVER.get(),
+                VariableRedstone.VARIABLE_BUTTON.get());
     }
 }

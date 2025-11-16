@@ -6,11 +6,13 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 
 import java.util.concurrent.CompletableFuture;
 
 import static net.minecraft.data.recipes.ShapedRecipeBuilder.shaped;
+import static net.minecraft.data.recipes.ShapelessRecipeBuilder.shapeless;
 
 public class VariableRedstoneRecipes extends RecipeProvider {
     public VariableRedstoneRecipes(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
@@ -41,6 +43,12 @@ public class VariableRedstoneRecipes extends RecipeProvider {
                 .pattern("l")
                 .define('a', Items.AMETHYST_SHARD)
                 .define('l', Items.LEVER)
+                .unlockedBy("has_amethyst", has(Items.AMETHYST_SHARD))
+                .save(recipeOutput);
+
+        shapeless(RecipeCategory.REDSTONE, VariableRedstone.VARIABLE_BUTTON.get(), 1)
+                .requires(Items.AMETHYST_SHARD)
+                .requires(ItemTags.BUTTONS)
                 .unlockedBy("has_amethyst", has(Items.AMETHYST_SHARD))
                 .save(recipeOutput);
     }

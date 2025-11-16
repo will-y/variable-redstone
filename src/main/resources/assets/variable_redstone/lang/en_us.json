@@ -4,5 +4,6 @@
   "block.variable_redstone.variable_redstone_block": "Variable Redstone Block",
   "block.variable_redstone.variable_redstone_torch": "Variable Redstone Torch",
   "block.variable_redstone.variable_redstone_wall_torch": "Variable Redstone Torch",
-  "block.variable_redstone.variable_lever": "Variable Lever"
+  "block.variable_redstone.variable_lever": "Variable Lever",
+  "block.variable_redstone.variable_button": "Variable Button"
 }

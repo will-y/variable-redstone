@@ -1,5 +1,6 @@
 {
   "values": [
-    "variable_redstone:variable_redstone_block"
+    "variable_redstone:variable_redstone_block",
+    "variable_redstone:variable_lever"
   ]
 }

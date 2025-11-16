@@ -1,7 +1,8 @@
 package dev.willyelton.variable_redstone;
 
+import dev.willyelton.variable_redstone.common.block.VariableButton;
 import dev.willyelton.variable_redstone.common.block.VariableRedstoneBlock;
-import dev.willyelton.variable_redstone.common.block.VariableRedstoneLever;
+import dev.willyelton.variable_redstone.common.block.VariableLever;
 import dev.willyelton.variable_redstone.common.block.VariableRedstoneTorch;
 import dev.willyelton.variable_redstone.common.block.VariableRedstoneWallTorch;
 import net.minecraft.core.Direction;
@@ -37,8 +38,11 @@ public class VariableRedstone {
     public static final DeferredHolder<Block, VariableRedstoneWallTorch> VARIABLE_REDSTONE_WALL_TORCH = BLOCKS.register("variable_redstone_wall_torch", VariableRedstoneWallTorch::new);
     public static final DeferredHolder<Item, BlockItem> VARIABLE_REDSTONE_TORCH_BLOCK_ITEM = ITEMS.register("variable_redstone_torch", () -> new StandingAndWallBlockItem(VARIABLE_REDSTONE_TORCH.get(), VARIABLE_REDSTONE_WALL_TORCH.get(), new Item.Properties(), Direction.DOWN));
 
-    public static final DeferredHolder<Block, VariableRedstoneLever> VARIABLE_LEVER = BLOCKS.register("variable_lever", VariableRedstoneLever::new);
+    public static final DeferredHolder<Block, VariableLever> VARIABLE_LEVER = BLOCKS.register("variable_lever", VariableLever::new);
     public static final DeferredHolder<Item, BlockItem> VARIABLE_LEVER_BLOCK_ITEM = ITEMS.registerSimpleBlockItem(VARIABLE_LEVER);
+
+    public static final DeferredHolder<Block, VariableButton> VARIABLE_BUTTON = BLOCKS.register("variable_button", VariableButton::new);
+    public static final DeferredHolder<Item, BlockItem> VARIABLE_BUTTON_BLOCK_ITEM = ITEMS.registerSimpleBlockItem(VARIABLE_BUTTON);
 
     // Creative Tab
     public static DeferredHolder<CreativeModeTab, CreativeModeTab> TAB = CREATIVE_MODE_TABS.register("variable_redstone_tab", () ->
@@ -49,6 +53,7 @@ public class VariableRedstone {
                         output.accept(VARIABLE_REDSTONE_BLOCK_ITEM.get());
                         output.accept(VARIABLE_REDSTONE_TORCH_BLOCK_ITEM.get());
                         output.accept(VARIABLE_LEVER_BLOCK_ITEM.get());
+                        output.accept(VARIABLE_BUTTON_BLOCK_ITEM.get());
                     })
                     .build());
 

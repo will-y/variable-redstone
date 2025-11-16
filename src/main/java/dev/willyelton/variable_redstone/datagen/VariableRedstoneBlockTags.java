@@ -17,7 +17,11 @@ public class VariableRedstoneBlockTags extends BlockTagsProvider {
     @Override
     protected void addTags(HolderLookup.Provider provider) {
         tag(BlockTags.MINEABLE_WITH_PICKAXE).add(
-                VariableRedstone.VARIABLE_REDSTONE_BLOCK.get()
+                VariableRedstone.VARIABLE_REDSTONE_BLOCK.get(),
+                VariableRedstone.VARIABLE_LEVER.get()
+        );
+        tag(BlockTags.BUTTONS).add(
+                VariableRedstone.VARIABLE_BUTTON.get()
         );
     }
 }

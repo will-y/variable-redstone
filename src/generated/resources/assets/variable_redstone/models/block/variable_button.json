@@ -1,0 +1,83 @@
+{
+  "elements": [
+    {
+      "faces": {
+        "down": {
+          "cullface": "down",
+          "texture": "#texture",
+          "tintindex": 0,
+          "uv": [
+            4.0,
+            2.0,
+            10.0,
+            6.0
+          ]
+        },
+        "east": {
+          "texture": "#texture",
+          "tintindex": 0,
+          "uv": [
+            6.0,
+            12.0,
+            10.0,
+            14.0
+          ]
+        },
+        "north": {
+          "texture": "#texture",
+          "tintindex": 0,
+          "uv": [
+            5.0,
+            12.0,
+            11.0,
+            14.0
+          ]
+        },
+        "south": {
+          "texture": "#texture",
+          "tintindex": 0,
+          "uv": [
+            5.0,
+            12.0,
+            11.0,
+            14.0
+          ]
+        },
+        "up": {
+          "texture": "#texture",
+          "tintindex": 0,
+          "uv": [
+            4.0,
+            2.0,
+            10.0,
+            6.0
+          ]
+        },
+        "west": {
+          "texture": "#texture",
+          "tintindex": 0,
+          "uv": [
+            6.0,
+            12.0,
+            10.0,
+            14.0
+          ]
+        }
+      },
+      "from": [
+        5,
+        0,
+        6
+      ],
+      "to": [
+        11,
+        2,
+        10
+      ]
+    }
+  ],
+  "textures": {
+    "particle": "#texture",
+    "texture": "variable_redstone:block/variable_redstone_block"
+  }
+}
