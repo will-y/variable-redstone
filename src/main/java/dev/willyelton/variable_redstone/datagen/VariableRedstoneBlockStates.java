@@ -201,8 +201,8 @@ public class VariableRedstoneBlockStates extends BlockStateProvider {
     }
 
     private void registerButton() {
-        BlockModelBuilder button = getButtonModel("", 14);
-        BlockModelBuilder buttonPressed = getButtonModel("_pressed", 13);
+        BlockModelBuilder button = getButtonModel("", 2);
+        BlockModelBuilder buttonPressed = getButtonModel("_pressed", 1);
 
         getVariantBuilder(VariableRedstone.VARIABLE_BUTTON.get())
                 .forAllStates(state -> {
@@ -295,7 +295,7 @@ public class VariableRedstoneBlockStates extends BlockStateProvider {
                 .texture("particle", "#texture")
                 .element()
                 .from(5, 0, 6)
-                .to(11, 2, 10)
+                .to(11, height == 1 ? 1.02F : 2, 10)
                 .allFaces((dir, faceBuilder) -> {
                     faceBuilder.texture("#texture");
                     faceBuilder.tintindex(0);
@@ -307,11 +307,11 @@ public class VariableRedstoneBlockStates extends BlockStateProvider {
                             break;
                         case NORTH:
                         case SOUTH:
-                            faceBuilder.uvs(5, 12, 11, height);
+                            faceBuilder.uvs(5, 12, 11, 12 + height);
                             break;
                         case EAST:
                         case WEST:
-                            faceBuilder.uvs(6, 12, 10, height);
+                            faceBuilder.uvs(6, 12, 10, 12 + height);
                             break;
                     }
                 })

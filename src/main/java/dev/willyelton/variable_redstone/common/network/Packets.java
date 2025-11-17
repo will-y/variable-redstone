@@ -13,5 +13,6 @@ public class Packets {
         PayloadRegistrar registrar = new PayloadRegistrar("1.0.0");
 
         registrar.playToServer(ChangePowerPayload.TYPE, ChangePowerPayload.STREAM_CODEC, ChangePowerHandler.INSTANCE::handle);
+        registrar.playToServer(ChangeTickLengthPayload.TYPE, ChangeTickLengthPayload.STREAM_CODEC, ChangeTickLengthHandler.INSTANCE::handle);
     }
 }

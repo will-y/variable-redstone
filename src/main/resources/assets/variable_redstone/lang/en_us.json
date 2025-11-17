@@ -1,9 +1,12 @@
 {
   "itemGroup.variable_redstone": "Variable Redstone",
   "screen.variable.title": "Change Power Level",
+  "screen.variable_redstone.tick_length": "Change Pulse Length",
   "block.variable_redstone.variable_redstone_block": "Variable Redstone Block",
   "block.variable_redstone.variable_redstone_torch": "Variable Redstone Torch",
   "block.variable_redstone.variable_redstone_wall_torch": "Variable Redstone Torch",
   "block.variable_redstone.variable_lever": "Variable Lever",
-  "block.variable_redstone.variable_button": "Variable Button"
+  "block.variable_redstone.variable_button": "Variable Button",
+  "variable_redstone.configuration.button_default_ticks": "Button Default Pulse Length",
+  "variable_redstone.configuration.button_max_ticks": "Button Max Pulse Length"
 }

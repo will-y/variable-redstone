@@ -1,4 +1,8 @@
 # Variable Redstone Changelog
+## Version 1.2.1
+- Allows you to change the button pulse length of the Variable Button
+- Fixes the button press model being incorrect
+
 ## Version 1.2.0
 - Adds the Variable Button
 - Fixes the lever block properties

@@ -1,6 +1,7 @@
 package dev.willyelton.variable_redstone.common.block;
 
-import dev.willyelton.variable_redstone.client.VariableScreen;
+import dev.willyelton.variable_redstone.VariableRedstone;
+import dev.willyelton.variable_redstone.client.VariableButtonScreen;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -36,7 +37,7 @@ public class VariableButton extends ButtonBlock {
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
         if (player.isShiftKeyDown()) {
             if (level.isClientSide) {
-                Minecraft.getInstance().setScreen(new VariableScreen(state.getValue(POWER), pos));
+                Minecraft.getInstance().setScreen(new VariableButtonScreen(state.getValue(POWER), pos, getPressedTicks(level, pos)));
             }
             return InteractionResult.SUCCESS;
         } else {
@@ -49,7 +50,7 @@ public class VariableButton extends ButtonBlock {
         level.setBlock(pos, state.setValue(POWERED, true), 3);
         level.updateNeighborsAt(pos, this);
         level.updateNeighborsAt(pos.relative(getConnectedDirection(state).getOpposite()), this);
-        level.scheduleTick(pos, this, 10);
+        level.scheduleTick(pos, this, getPressedTicks(level, pos));
         this.playSound(player, level, pos, true);
         level.gameEvent(player, GameEvent.BLOCK_ACTIVATE, pos);
     }
@@ -67,5 +68,9 @@ public class VariableButton extends ButtonBlock {
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(FACING, POWERED, FACE, POWER);
+    }
+
+    private int getPressedTicks(Level level, BlockPos pos) {
+        return level.getChunkAt(pos).getData(VariableRedstone.CHUNK_PULSE_LENGTH).getLength(pos);
     }
 }
