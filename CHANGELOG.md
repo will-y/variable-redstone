@@ -1,4 +1,7 @@
 # Variable Redstone Changelog
+## Version 1.3.0
+- Adds the variable redstone lamp
+
 ## Version 1.2.1
 - Allows you to change the button pulse length of the Variable Button
 - Fixes the button press model being incorrect

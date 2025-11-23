@@ -9,6 +9,7 @@ The currently implemented components are:
 - Variable Redstone Torch
 - Variable Lever
 - Variable Button
+- Variable Redstone Lamp
 
 ## Screenshots
 ![All Variable Redstone Components](https://github.com/will-y/variable-redstone/raw/main/img/all.png)
@@ -27,3 +28,6 @@ The currently implemented components are:
 
 ### Variable Button
 ![Variable Button Crafting](https://github.com/will-y/variable-redstone/raw/main/img/crafting/button.png)
+
+### Variable Redstone Lamp
+![Variable Redstone Lamp Crafting](https://github.com/will-y/variable-redstone/raw/main/img/crafting/lamp.png)

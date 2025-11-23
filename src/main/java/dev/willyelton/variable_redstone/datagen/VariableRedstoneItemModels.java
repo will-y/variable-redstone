@@ -23,5 +23,6 @@ public class VariableRedstoneItemModels extends ItemModelProvider {
                 .parent(new ModelFile.UncheckedModelFile("item/generated"))
                 .texture("layer0", rl("block/variable_lever"));
         withExistingParent(VariableRedstone.VARIABLE_BUTTON.getId().getPath(), modLoc("block/variable_button_inventory"));
+        withExistingParent(VariableRedstone.VARIABLE_REDSTONE_LAMP.getId().getPath(), modLoc("block/variable_redstone_lamp"));
     }
 }

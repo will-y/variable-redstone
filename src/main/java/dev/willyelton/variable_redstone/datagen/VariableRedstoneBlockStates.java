@@ -4,6 +4,7 @@ package dev.willyelton.variable_redstone.datagen;
 import dev.willyelton.variable_redstone.VariableRedstone;
 import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RedstoneTorchBlock;
 import net.minecraft.world.level.block.state.properties.AttachFace;
@@ -12,8 +13,8 @@ import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
-import net.neoforged.neoforge.registries.DeferredHolder;
 
+import static dev.willyelton.variable_redstone.VariableRedstone.POWER;
 import static net.minecraft.world.level.block.FaceAttachedHorizontalDirectionalBlock.FACE;
 import static net.minecraft.world.level.block.HorizontalDirectionalBlock.FACING;
 import static net.minecraft.world.level.block.LeverBlock.POWERED;
@@ -27,16 +28,17 @@ public class VariableRedstoneBlockStates extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
-        registerRedstoneBlock(VariableRedstone.VARIABLE_REDSTONE_BLOCK, "variable_redstone_block");
+        registerTintedBlock(VariableRedstone.VARIABLE_REDSTONE_BLOCK.get(), modLoc("block/variable_redstone_block"), "variable_redstone_block");
         registerTorch();
         registerWallTorch();
         registerLever();
         registerButton();
+        registerLamp();
     }
 
-    private void registerRedstoneBlock(DeferredHolder<Block, ?> holder, String name) {
+    private void registerTintedBlock(Block block, ResourceLocation texture, String name) {
         var b = models().withExistingParent(name, mcLoc("block/cube_all"))
-                .texture("all", modLoc("block/variable_redstone_block"))
+                .texture("all", texture)
                 .element()
                 .allFaces((dir, builder) -> {
                     builder.tintindex(0);
@@ -44,7 +46,32 @@ public class VariableRedstoneBlockStates extends BlockStateProvider {
                 })
                 .end();
 
-        simpleBlock(VariableRedstone.VARIABLE_REDSTONE_BLOCK.get(), ConfiguredModel.builder().modelFile(b).build());
+        simpleBlock(block, ConfiguredModel.builder().modelFile(b).build());
+    }
+
+    private void registerLamp() {
+        var onModel = models().withExistingParent("variable_redstone_lamp", mcLoc("block/cube_all"))
+                .texture("all", mcLoc("block/redstone_lamp_on"))
+                .element()
+                .allFaces((dir, builder) -> {
+                    builder.tintindex(0);
+                    builder.texture("#all");
+                })
+                .end();
+
+        var offModel = models().withExistingParent("variable_redstone_lamp_off", mcLoc("block/cube_all"))
+                .texture("all", mcLoc("block/redstone_lamp"))
+                .element()
+                .allFaces((dir, builder) -> {
+                    builder.tintindex(0);
+                    builder.texture("#all");
+                })
+                .end();
+
+        getVariantBuilder(VariableRedstone.VARIABLE_REDSTONE_LAMP.get())
+                .forAllStates(state -> ConfiguredModel.builder()
+                        .modelFile(state.getValue(POWER) == 0 ? offModel : onModel)
+                        .build());
     }
 
     private void registerTorch() {

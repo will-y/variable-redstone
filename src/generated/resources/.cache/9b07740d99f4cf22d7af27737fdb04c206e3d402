@@ -1,5 +1,6 @@
-// 1.21.1	2025-11-15T20:25:51.3898113	Item Models: variable_redstone
+// 1.21.1	2025-11-22T20:32:00.8133647	Item Models: variable_redstone
 b5d84c2ee580a746e94c2782961c4ab5267e97b2 assets/variable_redstone/models/item/variable_button.json
 1bdfd4692becf06d949bf1a29a8c5cd829d54616 assets/variable_redstone/models/item/variable_lever.json
 ce7bd9a6242d32570d777fd45c84a99bd561ff12 assets/variable_redstone/models/item/variable_redstone_block.json
+38191b6e6669d2965db50847448677adb8ffe3ef assets/variable_redstone/models/item/variable_redstone_lamp.json
 aebaf7cb81a96e6b2df418774f3e060e7520f429 assets/variable_redstone/models/item/variable_redstone_torch.json

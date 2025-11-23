@@ -1,5 +1,6 @@
-// 1.21.1	2025-11-15T20:18:29.7636468	Loot Tables
+// 1.21.1	2025-11-16T22:56:59.9124647	Loot Tables
 24b15f5e440c90fac18bc9feb98bb35ed132258f data/variable_redstone/loot_table/blocks/variable_button.json
 acba00bb1003b1c9566a0e8613cd03e40a3a4c93 data/variable_redstone/loot_table/blocks/variable_lever.json
 661c22cddf8bd9e251b562843e04fca84aacbe35 data/variable_redstone/loot_table/blocks/variable_redstone_block.json
+0e6dc5e20968e3ba5a7e662e0b8a90898de87f21 data/variable_redstone/loot_table/blocks/variable_redstone_lamp.json
 d71abc8ed8773a924a2862f4f532f422d9c0cb1e data/variable_redstone/loot_table/blocks/variable_redstone_torch.json

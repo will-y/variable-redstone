@@ -5,6 +5,7 @@ import dev.willyelton.variable_redstone.common.VariableRedstoneConfig;
 import dev.willyelton.variable_redstone.common.block.VariableButton;
 import dev.willyelton.variable_redstone.common.block.VariableLever;
 import dev.willyelton.variable_redstone.common.block.VariableRedstoneBlock;
+import dev.willyelton.variable_redstone.common.block.VariableRedstoneLamp;
 import dev.willyelton.variable_redstone.common.block.VariableRedstoneTorch;
 import dev.willyelton.variable_redstone.common.block.VariableRedstoneWallTorch;
 import net.minecraft.core.Direction;
@@ -52,6 +53,9 @@ public class VariableRedstone {
     public static final DeferredHolder<Block, VariableButton> VARIABLE_BUTTON = BLOCKS.register("variable_button", VariableButton::new);
     public static final DeferredHolder<Item, BlockItem> VARIABLE_BUTTON_BLOCK_ITEM = ITEMS.registerSimpleBlockItem(VARIABLE_BUTTON);
 
+    public static final DeferredHolder<Block, VariableRedstoneLamp> VARIABLE_REDSTONE_LAMP = BLOCKS.register("variable_redstone_lamp", VariableRedstoneLamp::new);
+    public static final DeferredHolder<Item, BlockItem> VARIABLE_REDSTONE_LAMP_BLOCK_ITEM = ITEMS.registerSimpleBlockItem(VARIABLE_REDSTONE_LAMP);
+
     // Data Attachments
     public static final Supplier<AttachmentType<ChunkPulseLengthData>> CHUNK_PULSE_LENGTH = ATTACHMENT_TYPES.register("chunk_pulse_length",
             () -> AttachmentType.builder(ChunkPulseLengthData::new)
@@ -69,6 +73,7 @@ public class VariableRedstone {
                         output.accept(VARIABLE_REDSTONE_TORCH_BLOCK_ITEM.get());
                         output.accept(VARIABLE_LEVER_BLOCK_ITEM.get());
                         output.accept(VARIABLE_BUTTON_BLOCK_ITEM.get());
+                        output.accept(VARIABLE_REDSTONE_LAMP_BLOCK_ITEM.get());
                     })
                     .build());
 

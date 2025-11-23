@@ -7,6 +7,7 @@
   "block.variable_redstone.variable_redstone_wall_torch": "Variable Redstone Torch",
   "block.variable_redstone.variable_lever": "Variable Lever",
   "block.variable_redstone.variable_button": "Variable Button",
+  "block.variable_redstone.variable_redstone_lamp": "Variable Redstone Lamp",
   "variable_redstone.configuration.button_default_ticks": "Button Default Pulse Length",
   "variable_redstone.configuration.button_max_ticks": "Button Max Pulse Length"
 }

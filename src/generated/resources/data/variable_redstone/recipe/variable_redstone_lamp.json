@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "key": {
+    "a": {
+      "item": "minecraft:amethyst_shard"
+    },
+    "l": {
+      "item": "minecraft:redstone_lamp"
+    }
+  },
+  "pattern": [
+    " a ",
+    "ala",
+    " a "
+  ],
+  "result": {
+    "count": 1,
+    "id": "variable_redstone:variable_redstone_lamp"
+  }
+}

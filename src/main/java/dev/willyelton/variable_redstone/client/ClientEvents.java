@@ -8,6 +8,7 @@ import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 @EventBusSubscriber(modid = VariableRedstone.MODID)
 public class ClientEvents {
     private static final int COLOR_DELTA = 0x000A0A0A;
+    private static final int LAMP_COLOR_DELTA = 0x00080808;
 
     @SubscribeEvent // on the mod event bus only on the physical client
     public static void registerBlockColorHandlers(RegisterColorHandlersEvent.Block event) {
@@ -24,6 +25,12 @@ public class ClientEvents {
                 VariableRedstone.VARIABLE_REDSTONE_TORCH.get(), VariableRedstone.VARIABLE_REDSTONE_WALL_TORCH.get(),
                 VariableRedstone.VARIABLE_REDSTONE_BLOCK.get(),
                 VariableRedstone.VARIABLE_LEVER.get(),
-                VariableRedstone.VARIABLE_BUTTON.get());
+                VariableRedstone.VARIABLE_BUTTON.get(),
+                // TODO: Tint the lamp differently and different state for 0 power
+                VariableRedstone.VARIABLE_REDSTONE_LAMP.get());
+
+        event.register((state, level, pos, tintIndex) -> {
+                    return 0xFFFFFFFF - ((15 - state.getValue(VariableRedstone.POWER)) * LAMP_COLOR_DELTA);
+                }, VariableRedstone.VARIABLE_REDSTONE_LAMP.get());
     }
 }
