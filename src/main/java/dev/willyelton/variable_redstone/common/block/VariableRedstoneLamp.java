@@ -33,7 +33,7 @@ public class VariableRedstoneLamp extends Block {
             int power = state.getValue(POWER);
             int neighborSignal = level.getBestNeighborSignal(pos);
             if (power != neighborSignal) {
-                level.setBlock(pos, state.setValue(POWER, neighborSignal), 2);
+                level.setBlock(pos, state.setValue(POWER, neighborSignal), 3);
             }
         }
     }

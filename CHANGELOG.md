@@ -1,4 +1,7 @@
 # Variable Redstone Changelog
+## Version 1.3.1
+- Fixes issue with the variable redstone lamp not updating correctly in some cases
+
 ## Version 1.3.0
 - Adds the variable redstone lamp
 
